@@ -7,7 +7,7 @@ export default defineConfig(({ mode, command }) => {
     // Use repository name as base path for GitHub Pages
     // Change this to match your GitHub repository name
     // Use base path for builds (not dev server)
-    const base = process.env.VITE_BASE_PATH || (command === 'build' ? "/canhao-quantico/" : "/");
+    const base = process.env.VITE_BASE_PATH || (command === 'build' ? "/Canhao-quantico/" : "/");
     return {
       server: {
         port: 3000,
