@@ -4,12 +4,15 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    // Use repository name as base path for GitHub Pages
+    // Change this to match your GitHub repository name
+    const base = mode === 'production' ? "/canhao-quantico/" : "/";
     return {
       server: {
         port: 3000,
         host: '0.0.0.0',
       },
-      base: "/Canhao-quantico/",
+      base: base,
       plugins: [react()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
