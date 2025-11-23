@@ -2,11 +2,12 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
     const env = loadEnv(mode, '.', '');
     // Use repository name as base path for GitHub Pages
     // Change this to match your GitHub repository name
-    const base = mode === 'production' ? "/canhao-quantico/" : "/";
+    // Use base path for builds (not dev server)
+    const base = process.env.VITE_BASE_PATH || (command === 'build' ? "/canhao-quantico/" : "/");
     return {
       server: {
         port: 3000,
